@@ -151,8 +151,6 @@ invokeQuick() {
 buildQuick() {
   clearIvyCache
   if [ "$publishToSonatype" = "yes" ]; then
-    # key has no passphrase
-    export PGP_PASSPHRASE=""
     invokeQuickInternal \
       "setupBootstrapPublish \"$BOOTSTRAP_REPO_DIR\" $SCALA_VER" \
       $clean $publishSonatypeTaskCore sonaUpload
