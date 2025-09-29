@@ -10,6 +10,9 @@ sensitive() {
   openssl aes-256-cbc -md md5 -d -pass "pass:$GPG_SUBKEY_SECRET" -in files/gpg_subkey.enc | gpg --import
 }
 
+# test
+echo "i'm ${HOME}" | envsubst
+
 # don't let anything escape from the sensitive part (e.g. leak environment var by echoing to log on failure)
 sensitive >/dev/null 2>&1
 
